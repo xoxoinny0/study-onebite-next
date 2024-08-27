@@ -1,7 +1,7 @@
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      readonly SERVER_URL: string;
+      readonly NEXT_PUBLIC_SERVER_URL: string;
       readonly DATABASE_URL: string;
     }
   }

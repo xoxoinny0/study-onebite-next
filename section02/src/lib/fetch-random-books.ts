@@ -1,7 +1,7 @@
 import { BookData } from "@/types";
 
 export default async function fetchRandomBooks(): Promise<BookData[]> {
-  const url = `${process.env.SERVER_URL}/book/random`;
+  const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/book/random`;
 
   try {
     const response = await fetch(url);
