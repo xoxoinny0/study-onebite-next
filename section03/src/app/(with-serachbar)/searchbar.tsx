@@ -11,7 +11,7 @@ export default function Searchbar() {
   return (
     <div>
       <input type="text" value={search} onChange={onChangeSearch} />
-      <button></button>
+      <button>검색</button>
     </div>
   );
 }
