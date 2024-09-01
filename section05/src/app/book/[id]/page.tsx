@@ -1,6 +1,13 @@
 import { BookData } from "@/types";
 import style from "./page.module.css";
+import { notFound } from "next/navigation";
 
+// generateStaticParams return 값으로 반환된 페이지가 아니라면 404 페이지로 이동
+// export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return [{ id: "1" }, { id: "2" }, { id: "3" }];
+}
 export default async function Page({
   params,
 }: {
@@ -9,6 +16,9 @@ export default async function Page({
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${params.id}`
   );
+  if (response.status === 404) {
+    notFound();
+  }
   if (!response.ok) {
     return <div>오류가 발생했습니다...</div>;
   }
